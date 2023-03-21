@@ -1,6 +1,6 @@
 import Pop from "./Pop.js"
 
-const APP_NAME = "FortuneCookie.client"
+const APP_NAME = "MinimalChat.client"
 
 export function saveState(key, value) {
   try {

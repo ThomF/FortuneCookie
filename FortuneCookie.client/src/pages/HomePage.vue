@@ -11,33 +11,23 @@
 </template>
 
 <script>
+import { onMounted, computed } from 'vue';
 import { logger } from '../utils/Logger';
-import Pop from '../utils/Pop';
 import { fortuneService } from '../services/FortuneService.js'
-import { onMounted } from 'vue';
 
 
 export default {
   setup() {
-
-    async function getSessionId() {
-      try {
-        await fortuneService.getSessionId()
-      } catch (error) {
-        logger.log(error)
-        Pop.error(error)
-      }
-    }
     async function getFortune() {
       try {
         await fortuneService.getFortune()
       } catch (error) {
-        logger.log(error)
-        Pop.error(error)
+        logger.error(error.message)
       }
     }
+
+
     onMounted(() => {
-      // getSessionId()
       getFortune()
     })
     return {}
