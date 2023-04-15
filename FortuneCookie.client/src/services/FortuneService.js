@@ -6,7 +6,7 @@ class FortuneService {
 
     async getFortune() {
         const res = await api.get('api/fortune')
-        logger.log(res.data)
+        logger.log('[FORTUNES]', res.data)
     }
 
 }
