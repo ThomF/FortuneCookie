@@ -7,7 +7,7 @@ export class FortuneController extends BaseController {
         super('api/fortune')
         this.router
             .get('', this.getFortune)
-            .get('/:fortuneId', this.getOneFortune)
+            .get('/:id', this.getOneFortune)
             .post('', this.createFortune)
             .use(Auth0Provider.getAuthorizedUserInfo)
             .delete('/:fortuneId', this.delete)
