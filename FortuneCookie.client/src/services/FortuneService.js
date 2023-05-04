@@ -9,6 +9,10 @@ class FortuneService {
         logger.log('[FORTUNES]', res.data)
     }
 
+    async getOneFortune() {
+        logger.log("get one fortune")
+    }
+
 }
 
 export const fortuneService = new FortuneService()

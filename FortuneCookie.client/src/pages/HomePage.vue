@@ -8,7 +8,7 @@
       </h1>
     </div>
   </div> -->
-  <button class="fc spawned" type="button">
+  <button @click="getOneFortune()" class="fc spawned" type="button">
     <div class="fc-part left"></div>
     <div class="fc-part right"></div>
     <div class="fc-crumbs">
@@ -32,6 +32,7 @@
 import { onMounted, computed } from 'vue';
 import { logger } from '../utils/Logger';
 import { fortuneService } from '../services/FortuneService.js'
+import Pop from '../utils/Pop';
 
 
 export default {
@@ -48,7 +49,16 @@ export default {
     onMounted(() => {
       getFortune()
     })
-    return {}
+    return {
+      async getOneFortune() {
+        try {
+          fortuneService.getOneFortune()
+        } catch (error) {
+          Pop.error(error.message)
+        }
+      }
+
+    }
   }
 }
 </script>
