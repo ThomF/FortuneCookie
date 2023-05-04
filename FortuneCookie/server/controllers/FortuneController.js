@@ -7,6 +7,7 @@ export class FortuneController extends BaseController {
         super('api/fortune')
         this.router
             .get('', this.getFortune)
+            .get('/:fortuneId', this.getOneFortune)
             .post('', this.createFortune)
             .use(Auth0Provider.getAuthorizedUserInfo)
             .delete('/:fortuneId', this.delete)
@@ -24,6 +25,15 @@ export class FortuneController extends BaseController {
     async getFortune(req, res, next) {
         try {
             const fortune = await fortuneService.getFortune()
+            return res.send(fortune)
+        } catch (error) {
+            next(error)
+        }
+    }
+    async getOneFortune(req, res, next) {
+        try {
+            const id = req.body
+            const fortune = await fortuneService.getOneFortune(id)
             return res.send(fortune)
         } catch (error) {
             next(error)

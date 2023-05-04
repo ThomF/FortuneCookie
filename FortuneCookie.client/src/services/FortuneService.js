@@ -1,3 +1,4 @@
+import { AppState } from "../AppState"
 import { logger } from "../utils/Logger"
 import { api } from "./AxiosService"
 
@@ -10,7 +11,15 @@ class FortuneService {
     }
 
     async getOneFortune() {
-        logger.log("get one fortune")
+        // const fortunes = await api.get('api/fortune');
+
+        // Next, randomly select an ID from the list of fortunes
+        const fortunes = AppState.fortunes
+        const randomFortuneId = fortunes.data[Math.floor(Math.random() * fortunes.data.length)].id;
+
+        // Finally, make a request to your backend to get the fortune with the selected ID
+        const response = await api.get(`api/fortune/${randomFortuneId}`);
+        logger.log(response)
     }
 
 }

@@ -12,6 +12,10 @@ class FortuneService {
         const fortune = await dbContext.Fortunes.find()
         return fortune
     }
+    async getOneFortune(id) {
+        const fortune = await dbContext.Fortunes.findById(id)
+        return fortune
+    }
 
     async getFortuneById(fortuneId) {
         const fortune = await dbContext.Fortunes.findById(fortuneId)
