@@ -16,8 +16,9 @@ class FortuneService {
         // Next, randomly select an ID from the list of fortunes
         // const fortunes = AppState.fortunes
         const randomFortuneId = fortunes.data[Math.floor(Math.random() * fortunes.data.length)].id;
-
+        logger.log(randomFortuneId)
         // Finally, make a request to your backend to get the fortune with the selected ID
+        // const response = await api.get(`api/fortune/${randomFortuneId}`);
         const response = await api.get(`api/fortune/${randomFortuneId}`);
         logger.log(response)
     }

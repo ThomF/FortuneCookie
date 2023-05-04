@@ -32,7 +32,7 @@ export class FortuneController extends BaseController {
     }
     async getOneFortune(req, res, next) {
         try {
-            const id = req.body
+            const id = req.params.id
             const fortune = await fortuneService.getOneFortune(id)
             return res.send(fortune)
         } catch (error) {
