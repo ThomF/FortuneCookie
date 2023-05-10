@@ -1,4 +1,5 @@
 import { AppState } from "../AppState"
+import { fortune } from "../models/fortune"
 import { logger } from "../utils/Logger"
 import { api } from "./AxiosService"
 
@@ -21,6 +22,7 @@ class FortuneService {
         // const response = await api.get(`api/fortune/${randomFortuneId}`);
         const response = await api.get(`api/fortune/${randomFortuneId}`);
         logger.log(response)
+        AppState.fortune = new fortune(response.data)
     }
 
 }
