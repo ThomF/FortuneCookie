@@ -8,7 +8,7 @@
       </h1>
     </div>
   </div> -->
-  <button @click="getOneFortune()" class="fc spawned" type="button" data-bs-toggle="modal" data-bs-target="#activeKeep">
+  <button @click="getOneFortune()" class="fc spawned" type="button" data-bs-toggle="modal" data-bs-target="#fortune">
     <div class="fc-part left"></div>
     <div class="fc-part right"></div>
     <div class="fc-crumbs">
@@ -27,9 +27,9 @@
     </div> -->
   </button>
 
-  <modal id="fortune">
+  <Modal id="fortune">
     <fortune />
-  </modal>
+  </Modal>
 </template>
 
 <script>

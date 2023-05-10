@@ -22,7 +22,8 @@ class FortuneService {
         // const response = await api.get(`api/fortune/${randomFortuneId}`);
         const response = await api.get(`api/fortune/${randomFortuneId}`);
         logger.log(response)
-        AppState.fortune = new fortune(response.data)
+        AppState.fortune = response.data
+        // logger.log(AppState.fortune)
     }
 
 }
